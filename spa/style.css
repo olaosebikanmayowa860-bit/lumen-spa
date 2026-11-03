@@ -1,0 +1,262 @@
+:root {
+  --bg: #f5f0f8;
+  --surface: #fff;
+  --ink: #2b2140;
+  --mut: #6a5f7d;
+  --acc: #4f9d94;
+  --on: #fff;
+  --line: #e0d6e8;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1c1530;
+    --surface: #271f40;
+    --ink: #f0eaf7;
+    --mut: #b5a9c9;
+    --acc: #6fc4ba;
+    --on: #14102a;
+    --line: #3a3058;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1c1530;
+  --surface: #271f40;
+  --ink: #f0eaf7;
+  --mut: #b5a9c9;
+  --acc: #6fc4ba;
+  --on: #14102a;
+  --line: #3a3058;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font:
+    16px/1.6 "Hanken Grotesk",
+    system-ui,
+    sans-serif;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  background: var(--bg);
+  z-index: 10;
+}
+h1,
+h2,
+h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  line-height: 1.1;
+  margin: 0 0 0.5em;
+  font-weight: 700;
+}
+h1 {
+  font-size: clamp(2.8rem, 9vw, 5.2rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+h2 {
+  font-size: 2.1rem;
+}
+h3 {
+  font-size: 1.4rem;
+}
+header {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 11;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.7rem 1.2rem;
+}
+.logo {
+  font:
+    700 1.6rem "Cormorant Garamond",
+    serif;
+  cursor: pointer;
+}
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  align-items: center;
+}
+nav button {
+  background: none;
+  border: 0;
+  color: var(--ink);
+  font: inherit;
+  padding: 0.4rem 0.7rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+nav button.on {
+  background: var(--ink);
+  color: var(--bg);
+}
+:focus-visible {
+  outline: 3px solid var(--acc);
+  outline-offset: 2px;
+}
+main {
+  max-width: 1000px;
+  margin: auto;
+  padding: 1.5rem 1.2rem 3rem;
+}
+.view {
+  display: none;
+}
+.view.show {
+  display: block;
+}
+.hero {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+  grid-template-columns: 1fr;
+  padding: 1.5rem 0;
+}
+@media (min-width: 760px) {
+  .hero {
+    grid-template-columns: 1.3fr 1fr;
+  }
+}
+.hero p {
+  color: var(--mut);
+  font-size: 1.1rem;
+  max-width: 30rem;
+}
+.orb {
+  aspect-ratio: 1;
+  border-radius: 50% 50% 50% 8%;
+  background: radial-gradient(circle at 30% 30%, #d7c4ee, #8fd1c8 60%, #4f9d94);
+  max-width: 320px;
+  width: 100%;
+  justify-self: center;
+}
+.btn {
+  display: inline-block;
+  background: var(--acc);
+  color: var(--on);
+  font: 600 1rem inherit;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.7rem 1.4rem;
+  cursor: pointer;
+}
+.btn.alt {
+  background: none;
+  border: 2px solid var(--ink);
+  color: var(--ink);
+}
+.btn.sm {
+  padding: 0.45rem 1rem;
+  font-size: 0.92rem;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.1rem;
+}
+.sw {
+  height: 90px;
+  border-radius: 12px;
+  margin-bottom: 0.8rem;
+}
+.price {
+  font-weight: 600;
+}
+.mut {
+  color: var(--mut);
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  justify-content: space-between;
+}
+#cart {
+  margin-top: 1.5rem;
+}
+#cart li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed var(--line);
+  list-style: none;
+}
+#cart ul {
+  padding: 0;
+  margin: 0 0 0.8rem;
+}
+form {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 420px;
+}
+label {
+  display: grid;
+  gap: 0.3rem;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+input,
+select {
+  font: inherit;
+  padding: 0.7rem 0.8rem;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+}
+.msg {
+  min-height: 1.4em;
+  font-size: 0.92rem;
+  color: #c0392b;
+}
+.msg.ok {
+  color: #2e8b57;
+}
+.av {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--acc);
+  color: var(--on);
+  display: grid;
+  place-items: center;
+  font:
+    700 1.8rem "Cormorant Garamond",
+    serif;
+}
+footer {
+  text-align: center;
+  color: var(--mut);
+  padding: 1.5rem;
+  font-size: 0.9rem;
+}

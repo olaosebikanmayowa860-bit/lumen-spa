@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Mayowa Spa &amp; Wellness</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Hanken+Grotesk:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo" data-go="home">Mayowa Spa</div>
+        <nav id="nav"></nav>
+    </header>
+    <main>
+        <section class="view" id="home">
+            <div class="hero">
+                <div>
+                    <h1>Rest is a daily practice.</h1>
+                    <p>Plant-based oils, mineral salts and candles made in small batches, so the calm you find at our
+                        spa can come home with you.</p>
+                    <div class="row" style="justify-content:flex-start"><a class="btn" href="#shop">Shop the
+                            collection</a><button class="btn alt" data-go="about">About Lumen</button></div>
+                </div>
+                <div class="orb" aria-hidden="true"></div>
+            </div>
+            <h2 id="shop">The collection</h2>
+            <div class="grid" id="products"></div>
+            <div class="card" id="cart">
+                <h3>Your cart</h3>
+                <div id="cartbody"></div>
+            </div>
+        </section>
+
+        <section class="view" id="about">
+            <h2>About mayowa</h2>
+            <p style="max-width:40rem" class="mut">Mayowa spa began in 2026 as a two-room treatment space and a shelf of
+                oils
+                we blended ourselves. Every product we sell is one we use in our own treatments: fragrance from
+                distilled botanicals, salts from a single mineral source, and wax poured by hand. We also run massage,
+                facials and sound baths in our studio, and members book first.</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>Clean ingredients</h3>No synthetic fragrance, parabens or microplastics.
+                </div>
+                <div class="card">
+                    <h3>Small batches</h3>We make fewer than 200 units of each scent at a time.
+                </div>
+                <div class="card">
+                    <h3>Refill friendly</h3>Return empty jars for a discount on your next order.
+                </div>
+            </div>
+        </section>
+
+        <section class="view" id="register">
+            <h2>Create your account</h2>
+            <form id="rf"><label>Full name<input name="name" required autocomplete="name"></label>
+                <label>Email<input name="email" type="email" required autocomplete="email"></label>
+                <label>Password (6+ characters)<input name="pw" type="password" minlength="6" required
+                        autocomplete="new-password"></label>
+                <label>Confirm password<input name="pw2" type="password" required autocomplete="new-password"></label>
+                <div class="msg" id="rm" role="alert"></div><button class="btn">Create account</button>
+            </form>
+        </section>
+
+        <section class="view" id="login">
+            <h2>Welcome back</h2>
+            <form id="lf"><label>Email<input name="email" type="email" required autocomplete="email"></label>
+                <label>Password<input name="pw" type="password" required autocomplete="current-password"></label>
+                <div class="msg" id="lm" role="alert"></div><button class="btn">Log in</button>
+                <span>New here? <a href="#" data-go="register" style="color:var(--ink)">Create an account</a></span>
+            </form>
+        </section>
+
+        <section class="view" id="profile">
+            <div class="row" style="justify-content:flex-start;gap:1rem">
+                <div class="av" id="av"></div>
+                <div>
+                    <h2 style="margin:0" id="pn"></h2><span class="mut" id="pe"></span>
+                </div>
+            </div>
+            <h3 style="margin-top:1.5rem">Your details</h3>
+            <form id="pf"><label>Full name<input name="name" required></label>
+                <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+                <label>Shipping address<input name="addr" autocomplete="street-address"></label>
+                <label>Preferred scent<select name="scent">
+                        <option>No preference</option>
+                        <option>Citrus</option>
+                        <option>Lavender</option>
+                        <option>Woody</option>
+                        <option>Unscented</option>
+                    </select></label>
+                <div class="msg ok" id="pm" role="status"></div>
+                <div class="row" style="justify-content:flex-start"><button class="btn">Save changes</button><button
+                        type="button" class="btn alt" id="lo">Log out</button></div>
+            </form>
+            <h3 style="margin-top:2rem">Order history</h3>
+            <div id="orders"></div>
+        </section>
+    </main>
+    <footer>Mayowa Spa &amp; Wellness · Free shipping over $60 · Demo store: no payment is taken</footer>
+    <script src="./scripts.js"></script>
+</body>
+
+</html>
